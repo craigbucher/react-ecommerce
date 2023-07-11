@@ -1,0 +1,17 @@
+
+create react app: https://create-react-app.dev/docs/getting-started/
+material ui: https://mui.com/material-ui/getting-started/installation/  (styling)
+formik: https://formik.org/docs/overview#installation                   (forms)
+yup validation: https://github.com/jquense/yup
+google fonts: https://fonts.google.com/
+react responsive carousel: https://github.com/leandrowd/react-responsive-carousel
+redux toolkit: https://redux-toolkit.js.org/tutorials/quick-start       (state management)
+strapi: https://docs.strapi.io/dev-docs/quick-start                     (backend)
+    = headless content management system (CMS), similar to WordPress, but only provides backend
+stripe dashboard: https://dashboard.stripe.com/login                    (payments)
+stripe quickstart: https://stripe.com/docs/billing/quickstart
+stripe code: https://stripe.com/docs/checkout/quickstart
+stripe api ref: https://stripe.com/docs/api/checkout/sessions/create
+stripe api keys: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fapikeys
+
+** Images are from Unsplash & copyright-free
