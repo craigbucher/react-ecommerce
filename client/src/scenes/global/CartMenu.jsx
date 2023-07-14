@@ -21,26 +21,34 @@ const FlexBox = styled(Box)`
 
 const CartMenu = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();	// initialize redux state
+  const cart = useSelector((state) => state.cart.cart);	// 'cart' name in 'cart' slice
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
 
+	// calculate total price for all items in cart:
   const totalPrice = cart.reduce((total, item) => {
     return total + item.count * item.attributes.price;
-  }, 0);
+  }, 0);	// starts at 0
 
   return (
     <Box
       display={isCartOpen ? "block" : "none"}
+			// An element that has the display property set to 'block' starts 
+			// on a new line and takes up the available screen width
+			// Hiding an element can be done by setting the display property
+			// to 'none'. The element will be hidden, and the page will be 
+			// displayed as if the element is not there
       backgroundColor="rgba(0, 0, 0, 0.4)"
+			// overlays entire screen with transparent dark
       position="fixed"
-      zIndex={10}
+      zIndex={10}	// ensure that it's displayed on top
       width="100%"
       height="100%"
       left="0"
       top="0"
-      overflow="auto"
+      overflow="auto" // helps with scrolling
     >
+			{/* Shopping bag modal on right side */}
       <Box
         position="fixed"
         right="0"
@@ -53,25 +61,34 @@ const CartMenu = () => {
           {/* HEADER */}
           <FlexBox mb="15px">
             <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
+            {/* click on button to open/close shopping cart */}
             <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
               <CloseIcon />
             </IconButton>
           </FlexBox>
 
           {/* CART LIST */}
+          {/* Every item in the cart will have these components: */}
           <Box>
-            {cart.map((item) => (
+            {cart.map((item) => ( // for everything in the cart:
+              // key required by React for maps/enumeration
+              // 'item.attributes' returned to us from strapi
               <Box key={`${item.attributes.name}-${item.id}`}>
+                {/* padding = 15px top/bottom, 0px left/right */}
                 <FlexBox p="15px 0">
+                  {/* flex properties ?????? 40% = 'flex basis' */}
                   <Box flex="1 1 40%">
                     <img
-                      alt={item?.name}
+                      alt={item?.name}  // item? = if item exists
                       width="123px"
                       height="164px"
-                      src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                      // strapi is at port 1337
+                      // image url returned by strapi (?s = 'if exists')
+                      src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                     />
                   </Box>
                   <Box flex="1 1 60%">
+                    {/* ITEM NAME */}
                     <FlexBox mb="5px">
                       <Typography fontWeight="bold">
                         {item.attributes.name}
@@ -85,6 +102,7 @@ const CartMenu = () => {
                       </IconButton>
                     </FlexBox>
                     <Typography>{item.attributes.shortDescription}</Typography>
+                    {/* AMOUNT INCREASE/DECREASE */}
                     <FlexBox m="15px 0">
                       <Box
                         display="flex"
@@ -107,6 +125,7 @@ const CartMenu = () => {
                           <AddIcon />
                         </IconButton>
                       </Box>
+                      {/* PRICE */}
                       <Typography fontWeight="bold">
                         ${item.attributes.price}
                       </Typography>
@@ -118,7 +137,7 @@ const CartMenu = () => {
             ))}
           </Box>
 
-          {/* ACTIONS */}
+          {/* CHECKOUT */}
           <Box m="20px 0">
             <FlexBox m="20px 0">
               <Typography fontWeight="bold">SUBTOTAL</Typography>
@@ -130,12 +149,12 @@ const CartMenu = () => {
                 color: "white",
                 borderRadius: 0,
                 minWidth: "100%",
-                padding: "20px 40px",
+                padding: "20px 40px", // top/bottom left/right
                 m: "20px 0",
               }}
               onClick={() => {
-                navigate("/checkout");
-                dispatch(setIsCartOpen({}));
+                navigate("/checkout");  // go to checkout page
+                dispatch(setIsCartOpen({}));  // close the cart (overlay)
               }}
             >
               CHECKOUT

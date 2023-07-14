@@ -28,7 +28,7 @@ function Footer() {
             mb="30px"
             color={shades.secondary[500]}
           >
-            ECOMMER
+            ECOMMERCE
           </Typography>
           <div>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -71,7 +71,7 @@ function Footer() {
           <Typography mb="30px" sx={{ wordWrap: "break-word" }}>
             Email: mredwardroh@gmail.com
           </Typography>
-          <Typography mb="30px">(222)333-4444</Typography>
+          <Typography mb="30px">(222) 333-4444</Typography>
         </Box>
       </Box>
     </Box>

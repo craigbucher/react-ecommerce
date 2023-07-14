@@ -1,5 +1,6 @@
 // From: https://www.youtube.com/watch?v=EBCdyQ_HFMo
 // https://github.com/ed-roh/react-ecommerce/tree/master
+// https://discord.gg/2FfPeEk2mX
 
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";

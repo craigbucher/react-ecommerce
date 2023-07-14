@@ -8,7 +8,7 @@ import {
   } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
-// import { setIsCartOpen } from "../../state";
+import { setIsCartOpen } from "../../state";
 
 const Navbar = () => {
 	const navigate = useNavigate();

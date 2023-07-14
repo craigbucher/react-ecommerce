@@ -5,3 +5,9 @@
 - Include shipping & billing address in user profile
 - re-size address form fields (country)
 - search function for products
+- Prohibit going to checkout if no objects in cart
+- Randomize carousel
+- Make prev/next links work on item page
+- Add dummy reviews
+- Add user review functionality
+- Allow direct entry into item quantity (instead of having to use +/- icons)
