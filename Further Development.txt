@@ -1,0 +1,7 @@
+- Persistent cart
+- User sessions (login/logout/register)
+- Make links work
+- Track wishlist
+- Include shipping & billing address in user profile
+- re-size address form fields (country)
+- search function for products

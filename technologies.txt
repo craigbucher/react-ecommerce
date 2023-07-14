@@ -1,3 +1,5 @@
+mredwardroh@gmail.com
+eroh@gmail.com
 
 create react app: https://create-react-app.dev/docs/getting-started/
 material ui: https://mui.com/material-ui/getting-started/installation/  (styling)
@@ -5,7 +7,10 @@ formik: https://formik.org/docs/overview#installation                   (forms)
 yup validation: https://github.com/jquense/yup
 google fonts: https://fonts.google.com/
 react responsive carousel: https://github.com/leandrowd/react-responsive-carousel
+redux: https://redux.js.org/
+    - most mature and well known state management library
 redux toolkit: https://redux-toolkit.js.org/tutorials/quick-start       (state management)
+    - reduced massive amount of boilerplate needed to setup 'vanilla' redux
 strapi: https://docs.strapi.io/dev-docs/quick-start                     (backend)
     = headless content management system (CMS), similar to WordPress, but only provides backend
 stripe dashboard: https://dashboard.stripe.com/login                    (payments)
@@ -15,3 +20,39 @@ stripe api ref: https://stripe.com/docs/api/checkout/sessions/create
 stripe api keys: https://dashboard.stripe.com/login?redirect=%2Ftest%2Fapikeys
 
 ** Images are from Unsplash & copyright-free
+
+****************************************
+*** strapi setup == must watch video ***
+****************************************
+(also, under 'Settings/Roles' add 'find' and 'findOne' to permitted actions 
+for 'Item' and 'create' to permitted actions for 'Order' and Save)
+
+in client: npm i @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom@6 react-redux @reduxjs/toolkit formik yup dotenv react-responsive-carousel
+in client: npm i @stripe/stripe-js
+in server: npm i stripe
+
+Redux DUCKS pattern?
+
+/src/components - component shared across multiple pages
+
+/src/scenes - components that determine layout of pages
+    /scenes/home - home page
+    /scenes/global - navbar and footer
+
+/src/state - where redux state is stored
+
+*** pesticide = Chrome extension that identifies CSS elements on live page
+
+To start servers:
+    strapi (server) = yarn develop
+    React (client) = npm run start
+
+stripe functionality contained in server/src/api/order/controllers/order.js
+
+stripe test credit cards:
+- success: 4242 4242 4242 4242
+- requires authentication: 4000 0025 0000 3155
+- declined: 4000 0000 0000 9995
+
+(The userName does not get into strapi back end so you have to fix the request body with  values.billingAddress.firstName & values.billingAddress.lastName,)
+
